@@ -6,31 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All SGPA Tracker Entries</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
-    <style>
-        table {
-            width: 95%;
-            border-collapse: collapse;
-            margin: 20px auto;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center; /* Center the content */
-        }
-        th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-        }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        .subject-header {
-            background-color: #e0e0e0;
-        }
-    </style>
+    
 </head>
-<body>
-    <h2>All SGPA Tracker Entries - Subject Wise</h2>
+<body class="all-entries-page">
+    <h2 class="all-entries-title">All SGPA Tracker Entries - Subject Wise</h2>
 
     {% if entries %}
         {% for submission_id, data in entries.items() %}
