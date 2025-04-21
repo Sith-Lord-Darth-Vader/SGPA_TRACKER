@@ -7,23 +7,26 @@
     <title>Enter Marks</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
 </head>
-<body>
-    <h2>Enter Marks for {{ branch }} - {{ semester }}</h2>
-    <form action="/submit_marks" method="POST">
+<body class="marks-entry">
+    <h2 class="marks-entry-title">Enter Marks for {{ branch }} - {{ semester }}</h2>
+    <form action="/submit_marks" method="POST" class="marks-entry-form">
         <input type="hidden" name="name" value="{{ name}}">
         <input type="hidden" name="PRN" value="{{ PRN }}">
         <input type="hidden" name="branch" value="{{ branch }}">
         <input type="hidden" name="semester" value="{{ semester }}">
 
         {% for subject in subjects %}
+        <div class="subject-input-group">
             <label for="{{ subject|replace(' ', '_') }}_fa1">{{ subject }} FA-1 Marks (out of 20): </label>
             <input type="number" id="{{ subject|replace(' ', '_') }}_fa1" name="fa1[]" min="0" max="20" placeholder="Enter FA-1 Marks" required>
             <br><br>
-
+        </div>
+        <div class="subject-input-group">
             <label for="{{ subject|replace(' ', '_') }}_fa2">{{ subject }} FA-2 Marks (out of 20): </label>
             <input type="number" id="{{ subject|replace(' ', '_') }}_fa2" name="fa2[]" min="0" max="20" placeholder="Enter FA-2 Marks" required>
             <input type="hidden" name="subject_name[]" value="{{ subject }}">
             <br><br>
+        </div>
         {% endfor %}
 
         <label for="desired_sgpa">Desired SGPA (0.0 - 10.0): </label>
