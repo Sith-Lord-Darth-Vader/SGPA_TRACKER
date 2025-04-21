@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All SGPA Tracker Entries</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+    <style>
+        table {
+            width: 95%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center; /* Center the content */
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .subject-header {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <h2>All SGPA Tracker Entries - Subject Wise</h2>
+
+    {% if entries %}
+        {% for submission_id, data in entries.items() %}
+            <h3>Submission ID: {{ submission_id }}</h3>
+            <p><b>Name:</b> {{ data.name }} | <b>P.R.N. :</b> {{ data.PRN }} | <b>Branch:</b> {{ data.branch }} | <b>Semester:</b> {{ data.semester }} | <b>Timestamp:</b> {{ data.timestamp }}</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>FA-1 Marks</th>
+                        <th>FA-2 Marks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if data.subjects %}
+                        {% for subject, marks in data.subjects.items() %}
+                            <tr>
+                                <td>{{ subject }}</td>
+                                <td>{{ marks.fa1 if marks.fa1 is not none else '-' }}</td>
+                                <td>{{ marks.fa2 if marks.fa2 is not none else '-' }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr><td colspan="3">No subjects recorded for this submission.</td></tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            <br>
+        {% endfor %}
+    {% else %}
+        <p>No entries recorded yet.</p>
+    {% endif %}
+
+    <p><a href="{{ url_for('index') }}">Back to Dashboard</a></p>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <h2>SGPA Calculation and Advice</h2>
+    <p><b>Name:</b> {{ name }}</p>
+    <p><b>P.R.N. : </b> {{ PRN }}</p>
+    <p><b>Branch:</b> {{ branch }}</p>
+    <p><b>Semester:</b> {{ semester }}</p>
+    <p><b>Desired SGPA:</b> {{ desired_sgpa }}</p>
+    <p><b>Average Required SA Marks (out of 60 per subject):</b> {{ required_sa_avg|round(2) }}</p>
+    <p><b>Study Advice:</b> {{ study_advice }}</p>
+
+    <h3>Comparison with Previous Submissions (Average FA Marks):</h3>
+    {% if comparison_info %}
+    <ul>
+        {% for subject, avg_prev_fa in comparison_info.items() %}
+        <li><b>{{ subject }}:</b> {% if avg_prev_fa is not string %}{{ avg_prev_fa|round(2) }}{% else %}{{ avg_prev_fa }}{% endif %}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No previous data available for comparison.</p>
+    {% endif %}
+
+    <p><a href="{{ url_for('index') }}">Back to Dashboard</a></p>
+</body>
+</html>
