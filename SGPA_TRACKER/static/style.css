@@ -1,83 +1,239 @@
+/* style.css - Including base styles from previous response */
 body {
     font-family: sans-serif;
-    margin: 20px;
     background-color: #f4f4f4;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
     color: #333;
     text-align: center;
+    margin-bottom: 20px;
+}
+
+u {
+    text-decoration-color: #007bff;
 }
 
 form {
     background-color: #fff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+div {
+    display: flex;
+    align-items: center;
 }
 
 label {
-    display: inline-block;
-    width: 150px;
-    margin-bottom: 10px;
+    width: 150px; /* Increased width for better readability */
+    text-align: left;
+    margin-right: 15px; /* Increased margin */
+    color: #555;
     font-weight: bold;
 }
 
 input[type="text"],
 input[type="number"],
 select {
-    padding: 8px;
-    margin-bottom: 10px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 200px;
+    font-size: 16px;
+    width: 300px; /* Increased width */
+}
+
+select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23343a40" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+select::-ms-expand {
+    display: none;
 }
 
 input[type="submit"],
 input[type="reset"] {
-    background-color: #5cb85c;
+    background-color: #007bff;
     color: white;
-    padding: 10px 15px;
+    padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 1em;
-    margin-right: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: fit-content;
+    align-self: center;
+    margin-top: 15px; /* Added margin */
 }
 
-input[type="reset"] {
-    background-color: #d9534f;
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #0056b3;
 }
 
-table {
-    width: 90%;
-    border-collapse: collapse;
-    margin: 20px auto;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+br {
+    display: none;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
+/* Specific styles for the Marks Entry Form */
+body.marks-entry {
+    background-color: #e9ecef; /* A slightly different background */
 }
 
-th {
-    background-color: #f2f2f2;
+h2.marks-entry-title {
+    color: #28a745; /* A more specific title color */
+}
+
+form.marks-entry-form {
+    background-color: #f8f9fa;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+}
+
+form.marks-entry-form label {
+    width: 280px; /* More width for subject labels */
+}
+
+form.marks-entry-form input[type="number"] {
+    width: 150px; /* Smaller input for marks */
+}
+
+.subject-input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 15px;
+}
+
+.subject-input-group label {
+    font-weight: normal;
+    color: #343a40;
+}
+
+/* Specific styles for the Result Page */
+body.result-page {
+    background-color: #d4edda; /* Light green background */
+    color: #155724; /* Dark green text */
+}
+
+h2.result-title {
+    color: #198754;
+}
+
+.result-info p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.result-info b {
     font-weight: bold;
+    color: #0c5460; /* A slightly different bold color */
 }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-a {
+.result-info a {
     color: #007bff;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-a:hover {
+.result-info a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+h3.comparison-title {
+    color: #6c757d;
+    margin-top: 20px;
+}
+
+.comparison-list {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+.comparison-list li {
+    margin-bottom: 5px;
+}
+
+.comparison-list b {
+    font-weight: bolder;
+    color: #495057;
+}
+
+/* Specific styles for the All Entries Page */
+body.all-entries-page {
+    background-color: #f8f9fa;
+}
+
+h2.all-entries-title {
+    color: #6f42c1; /* A purple color */
+    margin-bottom: 25px;
+}
+
+.all-entries-page h3 {
+    color: #495057;
+    margin-top: 20px;
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 5px;
+}
+
+.all-entries-page p {
+    margin-bottom: 10px;
+    color: #212529;
+}
+
+.all-entries-page table {
+    width: 98%; /* Slightly wider table */
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    overflow: hidden; /* To contain the border-radius of the table */
+}
+
+.all-entries-page th,
+.all-entries-page td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.all-entries-page th {
+    background-color: #e9ecef;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.all-entries-page tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.all-entries-page .subject-header {
+    background-color: #d1d1d1;
+    font-weight: bold;
+    color: #212529;
+}
+
+.all-entries-page a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.all-entries-page a:hover {
+    color: #0056b3;
     text-decoration: underline;
 }
