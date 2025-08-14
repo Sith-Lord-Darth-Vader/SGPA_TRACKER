@@ -1,3 +1,4 @@
+
 from flask import Flask, render_template, request, redirect, url_for
 import pymysql
 
@@ -18,7 +19,7 @@ def get_db_connection():
                                db=DB_NAME,
                                cursorclass=pymysql.cursors.DictCursor)
         return conn
-    except pymysql.Error as e:
+    except pymysql.Error as e:  
         print(f"Error connecting to MySQL: {e}")
         return None
 
