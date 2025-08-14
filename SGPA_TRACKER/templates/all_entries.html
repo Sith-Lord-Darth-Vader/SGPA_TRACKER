@@ -6,44 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All SGPA Tracker Entries</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
-    
 </head>
 <body class="all-entries-page">
     <h2 class="all-entries-title">All SGPA Tracker Entries - Subject Wise</h2>
 
     {% if entries %}
         {% for submission_id, data in entries.items() %}
-            <h3>Submission ID: {{ submission_id }}</h3>
-            <p><b>Name:</b> {{ data.name }} | <b>P.R.N. :</b> {{ data.PRN }} | <b>Branch:</b> {{ data.branch }} | <b>Semester:</b> {{ data.semester }} | <b>Timestamp:</b> {{ data.timestamp }}</p>
+            <div class="entry-card">
+                <h3>Submission ID: {{ submission_id }}</h3>
+                <p><b>Name:</b> {{ data.name }} | <b>P.R.N. :</b> {{ data.PRN }} | <b>Branch:</b> {{ data.branch }} | <b>Semester:</b> {{ data.semester }} | <b>Timestamp:</b> {{ data.timestamp }}</p>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Subject</th>
-                        <th>FA-1 Marks</th>
-                        <th>FA-2 Marks</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% if data.subjects %}
-                        {% for subject, marks in data.subjects.items() %}
-                            <tr>
-                                <td>{{ subject }}</td>
-                                <td>{{ marks.fa1 if marks.fa1 is not none else '-' }}</td>
-                                <td>{{ marks.fa2 if marks.fa2 is not none else '-' }}</td>
-                            </tr>
-                        {% endfor %}
-                    {% else %}
-                        <tr><td colspan="3">No subjects recorded for this submission.</td></tr>
-                    {% endif %}
-                </tbody>
-            </table>
-            <br>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>FA-1 Marks</th>
+                            <th>FA-2 Marks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if data.subjects %}
+                            {% for subject, marks in data.subjects.items() %}
+                                <tr>
+                                    <td>{{ subject }}</td>
+                                    <td>{{ marks.fa1 if marks.fa1 is not none else '-' }}</td>
+                                    <td>{{ marks.fa2 if marks.fa2 is not none else '-' }}</td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr><td colspan="3">No subjects recorded for this submission.</td></tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
         {% endfor %}
     {% else %}
-        <p>No entries recorded yet.</p>
+        <p class="no-entries">No entries recorded yet.</p>
     {% endif %}
 
-    <p><a href="{{ url_for('index') }}">Back to Dashboard</a></p>
+    <p class="back-link"><a href="{{ url_for('index') }}">Back to Dashboard</a></p>
 </body>
 </html>
