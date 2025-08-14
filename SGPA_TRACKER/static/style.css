@@ -1,239 +1,324 @@
 /* style.css - Including base styles from previous response */
 body {
-    font-family: sans-serif;
-    background-color: #f4f4f4;
-    margin: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa; /* Lighter background */
+    margin: 0;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 h2 {
-    color: #333;
+    color: #343a40;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-size: 2em;
+    font-weight: 600;
 }
 
 u {
     text-decoration-color: #007bff;
+    text-decoration-thickness: 2px;
 }
 
 form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
 }
 
-div {
+.form-container, .subject-input-group, .input-pair, .desired-sgpa-input {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+    align-items: center;
+    gap: 10px;
+}
+
+.form-container > div, .subject-input-group > div {
+    flex: 1; /* Allows div to grow and shrink */
+    min-width: 280px; /* Minimum width for each input group */
     display: flex;
     align-items: center;
+    justify-content: center; /* Center content within these divs */
 }
 
+
 label {
-    width: 150px; /* Increased width for better readability */
-    text-align: left;
-    margin-right: 15px; /* Increased margin */
-    color: #555;
-    font-weight: bold;
+    flex-basis: 180px; /* Increased width for labels */
+    text-align: right;
+    margin-right: 15px;
+    color: #495057;
+    font-weight: 600;
+    font-size: 1.05em;
 }
 
 input[type="text"],
 input[type="number"],
 select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    width: 300px; /* Increased width */
+    flex-grow: 1; /* Allows input to take remaining space */
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 1em;
+    color: #495057;
+    box-sizing: border-box;
+    max-width: 300px; /* Limit max width for inputs */
 }
 
 select {
     appearance: none;
     background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%23343a40" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');
     background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 12px;
-}
-
-select::-ms-expand {
-    display: none;
+    background-position: right 12px center;
+    background-size: 14px;
 }
 
 input[type="submit"],
 input[type="reset"] {
     background-color: #007bff;
     color: white;
-    padding: 12px 20px;
+    padding: 12px 25px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    width: fit-content;
-    align-self: center;
-    margin-top: 15px; /* Added margin */
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 150px; /* Fixed width for buttons */
+    margin: 10px auto; /* Center buttons */
+    box-sizing: border-box;
 }
 
 input[type="submit"]:hover,
 input[type="reset"]:hover {
     background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
-br {
-    display: none;
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
 }
 
 /* Specific styles for the Marks Entry Form */
 body.marks-entry {
-    background-color: #e9ecef; /* A slightly different background */
+    background-color: #e3f2fd; /* Light blue background */
 }
 
 h2.marks-entry-title {
-    color: #28a745; /* A more specific title color */
+    color: #1976d2; /* Deeper blue title */
 }
 
 form.marks-entry-form {
-    background-color: #f8f9fa;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.08);
-    padding: 25px;
-}
-
-form.marks-entry-form label {
-    width: 280px; /* More width for subject labels */
-}
-
-form.marks-entry-form input[type="number"] {
-    width: 150px; /* Smaller input for marks */
+    background-color: #e0f2f7; /* Lighter blue form background */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    padding: 35px;
 }
 
 .subject-input-group {
-    display: flex;
+    flex-direction: column; /* Stack FA1 and FA2 inputs vertically */
     align-items: center;
+    margin-bottom: 15px;
+    border: 1px solid #b3e5fc;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #f0f8ff;
+}
+
+.subject-input-group .input-pair {
+    width: 100%;
+    justify-content: center; /* Center content within input pair */
     margin-bottom: 10px;
-    gap: 15px;
 }
 
 .subject-input-group label {
+    flex-basis: 150px; /* Adjusted label width for marks form */
+    text-align: right;
     font-weight: normal;
-    color: #343a40;
+    color: #34495e;
+    margin-right: 10px;
+}
+
+.subject-input-group input[type="number"] {
+    max-width: 100px; /* Smaller input for marks */
+}
+
+.desired-sgpa-input {
+    justify-content: center; /* Center the desired SGPA input */
+    margin-top: 20px;
+}
+
+.desired-sgpa-input label {
+    flex-basis: 250px;
+    text-align: right;
+    margin-right: 15px;
 }
 
 /* Specific styles for the Result Page */
 body.result-page {
-    background-color: #d4edda; /* Light green background */
-    color: #155724; /* Dark green text */
+    background-color: #e6ffe6; /* Light green background */
+    color: #2e8b57; /* Darker green text */
 }
 
 h2.result-title {
-    color: #198754;
+    color: #3cb371;
 }
 
-.result-info p {
+.result-info, .sa-advice-section {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 700px;
+    box-sizing: border-box;
+}
+
+.result-info p, .sa-advice-section p {
     margin-bottom: 10px;
     font-size: 1.1em;
+    line-height: 1.6;
 }
 
-.result-info b {
+.result-info b, .sa-advice-section b {
     font-weight: bold;
-    color: #0c5460; /* A slightly different bold color */
-}
-
-.result-info a {
-    color: #007bff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.result-info a:hover {
-    color: #0056b3;
-    text-decoration: underline;
+    color: #1a4d2e;
 }
 
 h3.comparison-title {
-    color: #6c757d;
-    margin-top: 20px;
+    color: #607d8b;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    text-align: center;
 }
 
 .comparison-list {
-    list-style-type: square;
-    padding-left: 20px;
+    list-style-type: disc; /* Changed to disc for standard look */
+    padding-left: 30px;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 700px;
+    box-sizing: border-box;
+    margin-bottom: 20px; /* Added margin */
 }
 
 .comparison-list li {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-size: 1.05em;
+    color: #34495e;
 }
 
 .comparison-list b {
     font-weight: bolder;
-    color: #495057;
+    color: #2c3e50;
 }
 
-/* Specific styles for the All Entries Page */
-body.all-entries-page {
-    background-color: #f8f9fa;
+.back-link {
+    margin-top: 30px;
+    font-size: 1.1em;
 }
 
-h2.all-entries-title {
-    color: #6f42c1; /* A purple color */
-    margin-bottom: 25px;
-}
-
-.all-entries-page h3 {
-    color: #495057;
-    margin-top: 20px;
-    border-bottom: 2px solid #dee2e6;
-    padding-bottom: 5px;
-}
-
-.all-entries-page p {
-    margin-bottom: 10px;
-    color: #212529;
-}
-
-.all-entries-page table {
-    width: 98%; /* Slightly wider table */
-    margin: 20px auto;
-    border-collapse: collapse;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
-    border-radius: 8px;
-    overflow: hidden; /* To contain the border-radius of the table */
-}
-
-.all-entries-page th,
-.all-entries-page td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-    font-size: 0.9em;
-}
-
-.all-entries-page th {
-    background-color: #e9ecef;
-    font-weight: bold;
-    color: #343a40;
-}
-
-.all-entries-page tr:nth-child(even) {
-    background-color: #f8f9fa;
-}
-
-.all-entries-page .subject-header {
-    background-color: #d1d1d1;
-    font-weight: bold;
-    color: #212529;
-}
-
-.all-entries-page a {
+.back-link a {
     color: #007bff;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.all-entries-page a:hover {
+.back-link a:hover {
     color: #0056b3;
     text-decoration: underline;
+}
+
+/* Specific styles for the All Entries Page */
+body.all-entries-page {
+    background-color: #f0f4f7;
+}
+
+h2.all-entries-title {
+    color: #4a148c; /* Darker purple color */
+    margin-bottom: 30px;
+}
+
+.entry-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+}
+
+.all-entries-page h3 {
+    color: #303f9f; /* A strong blue */
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #c5cae9;
+    padding-bottom: 8px;
+    font-size: 1.6em;
+}
+
+.all-entries-page p {
+    margin-bottom: 12px;
+    color: #546e7a;
+    font-size: 1em;
+}
+
+.all-entries-page table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.all-entries-page th,
+.all-entries-page td {
+    border: 1px solid #e0e0e0;
+    padding: 12px;
+    text-align: left; /* Align text to left for better readability in tables */
+    font-size: 0.95em;
+}
+
+.all-entries-page th {
+    background-color: #eceff1;
+    font-weight: bold;
+    color: #455a64;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.all-entries-page td {
+    background-color: #ffffff;
+    color: #37474f;
+}
+
+.all-entries-page tr:nth-child(even) td {
+    background-color: #f5f5f5;
+}
+
+.all-entries-page .no-entries {
+    text-align: center;
+    font-style: italic;
+    color: #7f8c8d;
+    margin-top: 50px;
+    font-size: 1.2em;
 }
