@@ -10,17 +10,20 @@
 <body class="result-page">
     <h2 class="result-title">SGPA Calculation and Advice</h2>
     <div class="result-info">
-    <p><b>Name:</b> {{ name }}</p>
-    <p><b>P.R.N. : </b> {{ PRN }}</p>
-    <p><b>Branch:</b> {{ branch }}</p>
-    <p><b>Semester:</b> {{ semester }}</p>
-    <p><b>Desired SGPA:</b> {{ desired_sgpa }}</p>
-    <p><b>Average Required SA Marks (out of 60 per subject):</b> {{ required_sa_avg|round(2) }}</p>
-    <p><b>Study Advice:</b> {{ study_advice }}</p>
+        <p><b>Name:</b> {{ name }}</p>
+        <p><b>P.R.N. : </b> {{ PRN }}</p>
+        <p><b>Branch:</b> {{ branch }}</p>
+        <p><b>Semester:</b> {{ semester }}</p>
+        <p><b>Desired SGPA:</b> {{ desired_sgpa }}</p>
+    </div>
+
+    <div class="sa-advice-section">
+        <p><b>Average Required SA Marks (out of 60 per subject):</b> {{ required_sa_avg|round(2) }}</p>
+        <p><b>Study Advice:</b> {{ study_advice }}</p>
     </div>
         
     <h3 class="comparison-title">Comparison with Previous Submissions (Average FA Marks):</h3>
-    <ul class="comparison-list"></ul>
+    <ul class="comparison-list" id="comparison-list">
     {% if comparison_info %}
         {% for subject, avg_prev_fa in comparison_info.items() %}
         <li><b>{{ subject }}:</b> {% if avg_prev_fa is not string %}{{ avg_prev_fa|round(2) }}{% else %}{{ avg_prev_fa }}{% endif %}</li>
@@ -28,8 +31,8 @@
     {% else %}
     <p>No previous data available for comparison.</p>
     {% endif %}
-</ul>
+    </ul>
 
-    <p><a href="{{ url_for('index') }}">Back to Dashboard</a></p>
+    <p class="back-link"><a href="{{ url_for('index') }}">Back to Dashboard</a></p>
 </body>
 </html>
