@@ -10,36 +10,40 @@
 <body class="dashboard-page">
     <h2><u>SGPA Tracker Dashboard</u></h2>
     <form action="/get_subjects" method="POST">
-        <div>
-            <label for="name">Name : </label>
-            <input type="text" id="name" name="name" required>
+        <div class="form-container">
+            <div>
+                <label for="name">Name : </label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="PRN">P.R.N : </label>
+                <input type="text" id="PRN" name="PRN" required>
+            </div>
+            <div>
+                <label for="branch">Branch: </label>
+                <select id="branch" name="branch" required>
+                    <option value="">Select Branch</option>
+                    <option value="MECHANICAL">MECHANICAL</option>
+                    <option value="E&TC">E&TC</option>
+                    <option value="AIML">AIML</option>
+                    <option value="CIVIL">CIVIL</option>
+                    <option value="IT">IT</option>
+                    <option value="COMPUTER">COMPUTER</option>
+                    <option value="COMPUTER(R)">COMPUTER(R)</option>
+                </select>
+            </div>
+            <div>
+                <label for="semester">Semester: </label>
+                <select id="semester" name="semester" required>
+                    <option value="">Select Semester</option>
+                    <option value="Sem 1">Sem 1</option>
+                    <option value="Sem 2">Sem 2</option>
+                </select>
+            </div>
         </div>
-        <div>
-            <label for="PRN">P.R.N : </label>
-            <input type="text" id="PRN" name="PRN" required>
+        <div class="buttons-container">
+            <input type="submit" value="Next">
         </div>
-        <label for="branch">Branch: </label>
-        <select id="branch" name="branch" required>
-            <option value="">Select Branch</option>
-            <option value="MECHANICAL">MECHANICAL</option>
-            <option value="E&TC">E&TC</option>
-            <option value="AIML">AIML</option>
-            <option value="CIVIL">CIVIL</option>
-            <option value="IT">IT</option>
-            <option value="COMPUTER">COMPUTER</option>
-            <option value="COMPUTER(R)">COMPUTER(R)</option>
-        </select>
-        <br><br>
-
-        <label for="semester">Semester: </label>
-        <select id="semester" name="semester" required>
-            <option value="">Select Semester</option>
-            <option value="Sem 1">Sem 1</option>
-            <option value="Sem 2">Sem 2</option>
-        </select>
-        <br><br>
-
-        <input type="submit" value="Next">
     </form>
 </body>
 </html>
